@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>${msg}</h1>
+<h1>Exception.jsp</h1>
+<h1>${msg }</h1>
+<h1>${error }</h1>
 </body>
 </html>

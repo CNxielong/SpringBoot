@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="layer/layer.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+<script type="text/javascript">
+	$(function() {
+		loadDept();
+	});
+
+	function loadDept() {//加载Dept的所有信息
+		var str = "";
+			$.ajax({
+					url : "http://localhost:8888/dept",
+					dataType : "json",
+					cacht : "false",
+					type : "get",
+					success : function(result) {
+						$('#dept_table').empty();//清空列表
+						//result就是返回JSON格式的结果数据
+						for (var i = 0; i < result.length; i++) {
+							str += "<tr><td>"
+									+ result[i].dno
+									+ "</td><td>"
+									+ result[i].dname
+									+ "</td><td>"
+									+ result[i].dcity
+									+ "</td><td><a class='btn btn-danger' href='javascript:;' onclick='confirmDel("
+									+ result[i].dno + ")'>删除</a></td></tr>";
+							//<a href=''>A标签 href可以变成蓝灰色超链接 点击不跳转链接
+							//<a href='javascript:;>A标签 href可以变成深蓝色超链接 点击跳转链接 http://localhost:9999/client/javascript:;
+						}
+						$('#dept_table').append(str);
+					},
+					error : function() {
+						alert("数据加载失败，AJAX跨域问题");
+					}
+				})
+	}
+
+	//确认删除函数
+	function confirmDel(dno){
+		//询问框
+		layer.confirm('确定删除么？', {
+		  btn: ['确定','不删除'] //弹出询问信息
+		}, function(){//确定删除
+			del(dno);
+		  layer.msg('删除成功', {icon: 1});
+		}, function(){//不删除
+		  layer.msg('没有删除哦', {
+		    time: 5000 //5s后自动关闭
+// 		    btn: ['明白了', '知道了']//弹出提示
+		  });
+		})
+	}
+	
+	function del(id) {//对应后端Controller @Param("DNO") 
+		alert(id);
+		alert("del方法");
+		$.ajax({
+			url : "http://localhost:8888/dept/" + id,
+			type : "delete",
+			dataType : "json",
+			success : function(result) {
+				//result返回0或1
+				if (result == 1) {
+// 					alert("删除成功");
+					loadDept();//成功后重新加载列表
+					layer.msg('删除成功');
+				} else {
+					layer.msg('删除失败');
+				}
+			},
+			error : function() {
+				alert("删除失败");
+			}
+		});
+	};
+</script>
+
+</head>
+<body>
+	<div class="container"> <!-- 放到一块区域内 -->
+		<h1>部门管理</h1>
+		<table id="dept_table" class="table table-striped">
+		</table>
+	</div>
+</body>
+</html>

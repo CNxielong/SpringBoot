@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Pivotal Software, Inc.
+Implementation-Title: boot-day04-deptClient
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: cn.xdl
+Build-Jdk: 1.7.0_13
+Built-By: lenovo
+Created-By: Maven Integration for Eclipse
+Implementation-URL: http://projects.spring.io/spring-boot/boot-day04-d
+ eptClient/
+
