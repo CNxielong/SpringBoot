@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Template</title>
+</head>
+<body>
+	<h1>Thymeleaf 模板技术</h1>
+	<table>
+		<tr th:each="dept : ${deptList}">
+			<td th:text="${dept.dno}">Onions</td>
+			<td th:text="${dept.dname}">2.41</td>
+			<td th:text="${dept.dcity}">yes</td>
+		</tr>
+	</table>
+	<select>
+		<option th:each="dept : ${deptList}" th:value="${dept.dno}" th:text="${dept.dname}"></option>
+	</select>
+		<span  th:each="dept:${deptList}" th:text="'Welcome to our application, ' + ${dept.dno} + '!'"></span>
+
+</body>
+</html>
