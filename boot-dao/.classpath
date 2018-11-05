@@ -32,6 +32,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="E:/学习资料/程序 第三方库 JAR包/Jar包/数据库相关包/ojdbc6_g.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

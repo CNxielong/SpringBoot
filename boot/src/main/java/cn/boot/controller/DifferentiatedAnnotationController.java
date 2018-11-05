@@ -19,7 +19,8 @@ public class DifferentiatedAnnotationController {
 	/**
 	 * http://localhost:8888/boot/pathVariable/bigsea
 	 * http://localhost:8888/boot/pathVariable/sea
-	 * http://localhost:8888/boot/pathVariable?name=xielong报错
+	 * http://localhost:8888/boot/pathVariable?name=xielong   404错误
+	 * http://localhost:8888/boot/pathVariable 404错误
 	 * 这些URL 都会 执行此方法 并且将  <b>bigsea</b>、<b>sea</b> 作为参数 传递到name字段
 	 * @param name
 	 * @return
@@ -33,7 +34,7 @@ public class DifferentiatedAnnotationController {
 	/**
 	 * http://localhost:8888/boot/requestParam?firstName=big&lastName=sea
 	 * http://localhost:8888/boot/requestParam?lastName=sea&age=23
-	 * http://localhost:8888/boot/requestParam 报错
+	 * http://localhost:8888/boot/requestParam 报错400 Required String parameter 'lastName' is not present
 	 * 如果 required = true 则表示请求参数对应的 字段 必须存在.如果不存在则会抛出异常<br/>
 	 * @param firstName 可以为null
 	 * @param lastName 不能为null .为null报异常
