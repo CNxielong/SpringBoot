@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@Configuration
+@Configuration//拦截器配置，配置AjaxDomainInterceptor拦截器
 public class InterceptorConfig extends WebMvcConfigurerAdapter {
 
 	@Override

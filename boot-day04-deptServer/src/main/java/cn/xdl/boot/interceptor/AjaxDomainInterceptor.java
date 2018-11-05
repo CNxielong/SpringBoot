@@ -7,7 +7,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 
-@WebFilter(servletNames={"dispatcherServlet"})
+//@WebFilter(servletNames={"dispatcherServlet"}) //不是过滤器 不要随便加标注
 public class AjaxDomainInterceptor implements HandlerInterceptor {
 
 	@Override
